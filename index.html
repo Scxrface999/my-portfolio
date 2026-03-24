@@ -32,95 +32,94 @@
             opacity: 0.04; pointer-events: none; z-index: 9999;
         }
 
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.23, 1, 0.32, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 5%; z-index: 1000;
-            background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
 
-        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; }
         .nav-links a {
-            color: white; text-decoration: none; margin-left: 25px;
+            color: white; text-decoration: none; margin-left: 30px;
             font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
-            opacity: 0.6; transition: 0.3s;
+            opacity: 0.5; transition: 0.3s;
         }
         .nav-links a:hover { opacity: 1; }
 
+        /* --- HERO --- */
         .hero {
-            height: 80vh; display: flex; flex-direction: column;
+            height: 90vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
         }
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 12vw, 8rem);
-            font-weight: 700; letter-spacing: -4px; line-height: 0.9;
-            margin-bottom: 15px;
+            font-size: clamp(3.5rem, 15vw, 10rem);
+            font-weight: 700; letter-spacing: -6px; line-height: 0.8;
+            margin-bottom: 20px;
         }
 
-        .hero p { font-size: 0.8rem; letter-spacing: 4px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 30px; }
+        .hero p { font-size: 0.85rem; letter-spacing: 5px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 40px; }
 
         .btn {
-            padding: 12px 30px; border: 1px solid var(--accent); text-decoration: none;
-            font-weight: 600; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 2px; transition: 0.4s; color: white;
+            display: inline-block;
+            padding: 15px 35px; border: 1px solid var(--accent); text-decoration: none;
+            font-weight: 600; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 2px; transition: 0.5s; color: white;
         }
-        .btn:hover { background: white; color: black; }
+        .btn:hover { background: white; color: black; transform: translateY(-5px); }
 
-        .skills-section { padding: 80px 5%; }
-        .section-tag { font-size: 0.65rem; letter-spacing: 4px; color: var(--text-dim); text-transform: uppercase; text-align: center; margin-bottom: 40px; }
+        /* --- SKILLS HOVER SECTION --- */
+        .skills-section { padding: 120px 5%; }
+        .section-tag { font-size: 0.7rem; letter-spacing: 5px; color: var(--text-dim); text-transform: uppercase; text-align: center; margin-bottom: 60px; }
         
         .skills-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .skill-card {
-            position: relative; height: 320px; overflow: hidden;
+            position: relative; height: 400px; overflow: hidden;
             background: #0a0a0a; border: 1px solid var(--border);
         }
 
         .skill-card img {
             width: 100%; height: 100%; object-fit: cover;
-            transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
             filter: grayscale(100%) brightness(0.4);
         }
 
         .skill-info {
             position: absolute; bottom: 0; left: 0; width: 100%;
-            padding: 25px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 35px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
             transition: 0.5s;
         }
 
-        .skill-card:hover img { transform: scale(1.1); filter: grayscale(0%) brightness(0.7); }
-        .skill-card:hover .skill-info { transform: translateY(-5px); }
+        .skill-card:hover img { transform: scale(1.1); filter: grayscale(0%) brightness(0.8); }
+        .skill-card:hover .skill-info { transform: translateY(-10px); }
 
-        .about-section { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; }
-        .about-title { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; line-height: 1; }
-        .about-content p { font-size: 1.1rem; font-weight: 300; line-height: 1.6; color: var(--text-dim); margin-bottom: 20px; }
+        /* --- ABOUT ME --- */
+        .about-section { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; }
+        .about-title { font-family: 'Space Grotesk', sans-serif; font-size: 4rem; line-height: 0.9; }
+        .about-content p { font-size: 1.2rem; font-weight: 300; line-height: 1.7; color: var(--text-dim); margin-bottom: 30px; }
+        .about-content strong { color: white; font-weight: 500; }
 
-        footer { padding: 80px 5% 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
-        
-        /* Adjusted Email Size */
-        .footer-left h2 { 
-            font-family: 'Space Grotesk', sans-serif; 
-            font-size: 1.8rem; /* Normal, professional size */
-            margin-top: 10px;
-            letter-spacing: -0.5px;
-        }
+        /* --- FOOTER --- */
+        footer { padding: 120px 5% 50px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
+        .footer-left h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-top: 10px; }
+        .social-links { display: flex; flex-direction: column; gap: 12px; text-align: right; }
+        .social-links a { color: white; text-decoration: none; font-size: 1rem; opacity: 0.4; transition: 0.3s; }
+        .social-links a:hover { opacity: 1; transform: translateX(-8px); }
 
-        .social-links { display: flex; flex-direction: column; gap: 8px; text-align: right; }
-        .social-links a { color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.5; transition: 0.3s; }
-        .social-links a:hover { opacity: 1; transform: translateX(-5px); }
-
-        @media (max-width: 800px) {
-            .about-section { grid-template-columns: 1fr; }
-            footer { flex-direction: column; align-items: flex-start; gap: 30px; }
+        @media (max-width: 900px) {
+            .about-section { grid-template-columns: 1fr; gap: 40px; }
+            footer { flex-direction: column; align-items: flex-start; gap: 50px; }
             .social-links { text-align: left; }
         }
     </style>
@@ -130,7 +129,7 @@
     <nav>
         <div class="logo">ARYAN DIN.</div>
         <div class="nav-links">
-            <a href="#about">About Me</a>
+            <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </div>
@@ -150,77 +149,87 @@
             <div class="skill-card reveal">
                 <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000" alt="Python">
                 <div class="skill-info">
-                    <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem;">PYTHON</h3>
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 2rem;">PYTHON</h3>
+                    <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 5px; letter-spacing: 2px;">SCRIPTING & AUTOMATION</p>
                 </div>
             </div>
             <div class="skill-card reveal">
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000" alt="DS">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000" alt="Data Structures">
                 <div class="skill-info">
-                    <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem;">DS & ALGO</h3>
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 2rem;">DS & ALGO</h3>
+                    <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 5px; letter-spacing: 2px;">PROBLEM SOLVING</p>
                 </div>
             </div>
             <div class="skill-card reveal">
                 <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=1000" alt="SQL">
                 <div class="skill-info">
-                    <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem;">SQL</h3>
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 2rem;">SQL</h3>
+                    <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 5px; letter-spacing: 2px;">DATABASE MANAGEMENT</p>
                 </div>
             </div>
             <div class="skill-card reveal">
                 <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?q=80&w=1000" alt="Git">
                 <div class="skill-info">
-                    <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem;">GIT</h3>
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 2rem;">GIT</h3>
+                    <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 5px; letter-spacing: 2px;">VERSION CONTROL</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="about" class="about-section">
-        <h2 class="about-title reveal">About Me</h2>
+        <h2 class="about-title reveal">About<br>Me</h2>
         <div class="about-content reveal">
             <p>
-                I am a <strong>1st year BCA student</strong> focused on building a solid foundation in computer science and software development. 
+                I am <strong>Aryan Din</strong>, a 1st-year BCA student with a deep curiosity for how technology works under the hood. While my academic journey is just beginning, my passion for development goes far beyond the classroom. I focus on the <strong>hands-on execution</strong> of digital logic.
             </p>
             <p>
-                Currently mastering <strong>Python</strong> and <strong>Data Structures</strong>, while refining my skills in backend management and version control. 
+                Currently, I am immersing myself in the world of <strong>Python</strong> and <strong>Data Structures</strong>. I believe that writing code is an art form—one that requires a balance of clean syntax and efficient problem-solving. My technical toolkit is built on a foundation of Java, SQL, and Git for version control.
             </p>
+            <p>
+                I thrive on the challenge of turning a complex problem into a streamlined solution. Whether I’m architecting a backend structure or refining logic, my goal is to build software that is as <strong>robust</strong> as it is functional.
+            </p>
+            <a href="https://www.linkedin.com/in/aryan-din1/" target="_blank" class="btn" style="margin-top: 20px;">Connect on LinkedIn ↗</a>
         </div>
     </section>
 
-    <section id="contact" style="padding: 100px 10%; background: #050505; border-top: 1px solid var(--border);">
+    <section id="contact" style="padding: 120px 10%; background: #050505; border-top: 1px solid var(--border);">
         <div class="reveal">
-            <h2 style="font-family: 'Space Grotesk'; font-size: 2.5rem; margin-bottom: 30px;">Get in Touch</h2>
-            <form id="contactForm" style="display: grid; gap: 20px; max-width: 500px;">
-                <input type="text" id="name" placeholder="NAME" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 12px 0; outline: none;">
-                <input type="email" id="email" placeholder="EMAIL" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 12px 0; outline: none;">
-                <textarea id="message" rows="3" placeholder="MESSAGE" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 12px 0; outline: none;"></textarea>
+            <h2 style="font-family: 'Space Grotesk'; font-size: 3rem; margin-bottom: 40px;">Get in Touch</h2>
+            <form id="contactForm" style="display: grid; gap: 30px; max-width: 600px;">
+                <input type="text" id="name" placeholder="NAME" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 20px 0; font-size: 1.1rem; outline: none;">
+                <input type="email" id="email" placeholder="EMAIL" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 20px 0; font-size: 1.1rem; outline: none;">
+                <textarea id="message" rows="3" placeholder="MESSAGE" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 20px 0; font-size: 1.1rem; outline: none;"></textarea>
                 <button type="submit" class="btn" style="width: fit-content; background: none; cursor: pointer;">Send Message ↗</button>
             </form>
-            <p id="status" style="margin-top: 15px; font-size: 0.8rem;"></p>
+            <p id="status" style="margin-top: 25px; font-size: 0.8rem; letter-spacing: 2px;"></p>
         </div>
     </section>
 
     <footer>
         <div class="footer-left reveal">
-            <p style="letter-spacing: 4px; color: var(--text-dim); font-size: 0.65rem;">SAY HELLO</p>
+            <p style="letter-spacing: 5px; color: var(--text-dim); font-size: 0.7rem; margin-bottom: 5px;">INQUIRIES</p>
             <h2>aryandin04@gmail.com</h2>
         </div>
         <div class="social-links reveal">
             <a href="mailto:aryandin04@gmail.com">EMAIL ↗</a>
-            <a href="https://linkedin.com/in/your-profile" target="_blank">LINKEDIN ↗</a>
+            <a href="https://www.linkedin.com/in/aryan-din1/" target="_blank">LINKEDIN ↗</a>
             <a href="https://github.com/Scxrface999" target="_blank">GITHUB ↗</a>
         </div>
     </footer>
 
     <script>
+        // Smooth Reveal Logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+        // Form Logic connected to Render
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const status = document.getElementById('status');
-            status.innerText = "SENDING...";
+            status.innerText = "TRANSMITTING...";
             try {
                 const res = await fetch('https://my-portfolio-bwgk.onrender.com/contact', {
                     method: 'POST',
@@ -232,10 +241,10 @@
                     })
                 });
                 if(res.ok) {
-                    status.innerText = "SUCCESS: MESSAGE SENT.";
+                    status.innerText = "SUCCESS: MESSAGE DISPATCHED.";
                     document.getElementById('contactForm').reset();
                 }
-            } catch (err) { status.innerText = "ERROR: TRY AGAIN."; }
+            } catch (err) { status.innerText = "ERROR: CONNECTION FAILED."; }
         });
     </script>
 </body>
