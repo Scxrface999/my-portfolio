@@ -80,7 +80,7 @@
         }
         .btn:hover { background: white; color: black; transform: translateY(-5px); }
 
-        /* --- SKILLS GRID (HOVER ZOOM) --- */
+        /* --- SKILLS GRID --- */
         .skills-section { padding: 120px 5%; }
         .section-tag { font-size: 0.7rem; letter-spacing: 5px; color: var(--text-dim); text-transform: uppercase; text-align: center; margin-bottom: 60px; }
         
@@ -153,7 +153,7 @@
         <div class="reveal">
             <p>1st Year BCA Student // Developer</p>
             <h1>ARYAN DIN</h1>
-            <a href="https://github.com/Scxrface999" target="_blank" class="btn">View Github ↗</a>
+            <a href="https://github.com/Scxrface999/scxrface999.github.io" target="_blank" class="btn">Source Code ↗</a>
         </div>
     </header>
 
@@ -228,29 +228,21 @@
         <div class="social-links reveal">
             <a href="mailto:aryandin04@gmail.com">EMAIL ↗</a>
             <a href="https://www.linkedin.com/in/aryan-din1/" target="_blank">LINKEDIN ↗</a>
-            <a href="https://github.com/Scxrface999" target="_blank">GITHUB ↗</a>
+            <a href="https://github.com/Scxrface999/scxrface999.github.io" target="_blank">GITHUB ↗</a>
         </div>
     </footer>
 
     <script>
-        /* --- THE "NUCLEAR" TOP-SCROLL FIX --- */
-        
-        // 1. Disable browser's built-in scroll memory
+        /* --- THE NUCLEAR TOP-SCROLL FIX --- */
         if (history.scrollRestoration) {
             history.scrollRestoration = 'manual';
         }
-
-        // 2. Clear #fragments from the URL so the browser doesn't try to jump
         if (window.location.hash) {
             history.replaceState("", document.title, window.location.pathname + window.location.search);
         }
-
-        // 3. Force scroll to top (Immediately and after load)
         window.scrollTo(0, 0);
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-            }, 10);
+            setTimeout(() => { window.scrollTo(0, 0); }, 10);
         });
 
         /* --- REVEAL ON SCROLL LOGIC --- */
@@ -259,7 +251,7 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        /* --- CONTACT FORM LOGIC (RENDER) --- */
+        /* --- CONTACT FORM LOGIC --- */
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const status = document.getElementById('status');
