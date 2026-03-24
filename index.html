@@ -2,51 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tech Portfolio</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; text-align: center; }
-        header { background-color: #222; color: white; padding: 50px 20px; }
-        section { padding: 40px 20px; max-width: 600px; margin: auto; }
-        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        button { background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%; }
-        button:hover { background-color: #218838; }
-        .skills { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        .skill-box { background: #ddd; padding: 10px 20px; border-radius: 20px; font-weight: bold; }
+        /* The Techy Dark Theme */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #0b0c10; /* Deep dark background */
+            color: #c5c6c7; /* Light grey text */
+            text-align: center; 
+        }
+        
+        /* Neon Blue Accents */
+        h1, h2 { color: #66fcf1; text-transform: uppercase; letter-spacing: 2px; }
+        
+        header { 
+            background: linear-gradient(180deg, #1f2833 0%, #0b0c10 100%);
+            padding: 60px 20px 40px; 
+            border-bottom: 2px solid #45a29e;
+        }
+
+        /* Profile Picture Styling */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #66fcf1;
+            box-shadow: 0 0 15px #66fcf1; /* Glowing effect */
+            margin-bottom: 20px;
+        }
+
+        section { 
+            padding: 50px 20px; 
+            max-width: 700px; 
+            margin: auto; 
+            background-color: #1f2833; /* Slightly lighter dark card */
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        p { line-height: 1.6; font-size: 1.1em; }
+
+        /* Form Styling */
+        input, textarea { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            background-color: #0b0c10;
+            color: #66fcf1;
+            border: 1px solid #45a29e; 
+            border-radius: 5px; 
+            box-sizing: border-box; 
+            font-family: monospace;
+        }
+        
+        input::placeholder, textarea::placeholder { color: #45a29e; opacity: 0.7; }
+        input:focus, textarea:focus { outline: none; border-color: #66fcf1; box-shadow: 0 0 8px #66fcf1; }
+
+        button { 
+            background-color: transparent; 
+            color: #66fcf1; 
+            padding: 12px 20px; 
+            border: 2px solid #66fcf1; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%; 
+            transition: 0.3s;
+        }
+        
+        button:hover { 
+            background-color: #66fcf1; 
+            color: #0b0c10;
+            box-shadow: 0 0 15px #66fcf1;
+        }
+
+        .skills { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .skill-box { 
+            background: #0b0c10; 
+            color: #66fcf1;
+            padding: 10px 20px; 
+            border: 1px solid #45a29e;
+            border-radius: 5px; 
+            font-family: monospace;
+            font-weight: bold; 
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>My Portfolio</h1>
-        <p>Welcome to my college semester project!</p>
+        <img src="profile.jpg" alt="My Photo" class="profile-pic">
+        <h1>[Aryan Din]</h1>
+        <p>Software Developer | College Project</p>
     </header>
 
     <section>
         <h2>About Me</h2>
-        <p>Your details will go here!</p>
+       <p>
+    I am a passionate Developer and student with a deep interest in building 
+    modern, scalable web applications. My journey in tech started with a 
+    curiosity for how software works under the hood, leading me to master 
+    core programming languages and database management. 
+</p>
+<p>
+    I thrive on solving complex problems, whether it's crafting a clean 
+    frontend user interface or architecting a robust backend. My goal is to 
+    leverage my technical skills to create impactful digital solutions while 
+    constantly expanding my knowledge in the ever-evolving world of technology.
+</p>
     </section>
 
     <section>
-        <h2>My Skills</h2>
-        <div class="skills">
-            <div class="skill-box">Python</div>
-            <div class="skill-box">HTML</div>
-            <div class="skill-box">CSS</div>
-        </div>
+        <h2>Tech Stack</h2>
+       <div class="skills">
+    <div class="skill-box">> Python</div>
+    <div class="skill-box">> Java</div>
+    <div class="skill-box">> HTML5</div>
+    <div class="skill-box">> CSS3</div>
+    <div class="skill-box">> JavaScript</div>
+    <div class="skill-box">> Node.js</div>
+    <div class="skill-box">> MySQL</div>
+    <div class="skill-box">> Git / GitHub</div>
+</div>
     </section>
 
     <section>
-        <h2>Contact Me</h2>
+        <h2>Initialize Contact</h2>
         <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+            <input type="text" id="name" placeholder="Enter Name..." required>
+            <input type="email" id="email" placeholder="Enter Email..." required>
+            <textarea id="message" rows="4" placeholder="Enter Message..." required></textarea>
+            <button type="submit">Execute Send</button>
         </form>
-        <p id="status"></p>
+        <p id="status" style="margin-top: 15px; font-family: monospace;"></p>
     </section>
 
     <script>
-        // This Javascript connects the frontend button to your running server
+        // Your live Render server link is perfectly preserved here!
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -55,7 +153,8 @@
             const message = document.getElementById('message').value;
             const statusText = document.getElementById('status');
             
-            statusText.innerText = "Sending...";
+            statusText.innerText = "> Sending data packet...";
+            statusText.style.color = "#45a29e";
 
             try {
                 const response = await fetch('https://my-portfolio-bwgk.onrender.com/contact', {
@@ -65,15 +164,15 @@
                 });
                 
                 if (response.ok) {
-                    statusText.innerText = "Message saved to database successfully!";
-                    statusText.style.color = "green";
+                    statusText.innerText = "> Success: Data saved to database.";
+                    statusText.style.color = "#66fcf1";
                     document.getElementById('contactForm').reset();
                 } else {
-                    statusText.innerText = "Error saving message.";
+                    statusText.innerText = "> Error: Connection failed.";
                     statusText.style.color = "red";
                 }
             } catch (error) {
-                statusText.innerText = "Server is not running or connected.";
+                statusText.innerText = "> Error: Server offline.";
                 statusText.style.color = "red";
             }
         });
