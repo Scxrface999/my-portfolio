@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARYAN | Creative Developer</title>
+    <title>Aryan Din | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #000000;
             --accent: #ffffff;
             --text-dim: #888;
-            --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; cursor: crosshair; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg);
@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* --- NOISE TEXTURE --- */
+        /* Subtle Grain Overlay */
         body::before {
             content: "";
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -32,173 +32,177 @@
             opacity: 0.04; pointer-events: none; z-index: 9999;
         }
 
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.23, 1, 0.32, 1); }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 30px 5%; z-index: 1000;
+            padding: 20px 5%; z-index: 1000;
             background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: -1px; }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
         .nav-links a {
-            color: white; text-decoration: none; margin-left: 40px;
-            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
-            opacity: 0.5; transition: 0.3s;
+            color: white; text-decoration: none; margin-left: 25px;
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
+            opacity: 0.6; transition: 0.3s;
         }
         .nav-links a:hover { opacity: 1; }
 
-        /* --- HERO --- */
         .hero {
-            height: 100vh; display: flex; flex-direction: column;
+            height: 80vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            background: radial-gradient(circle at center, #111 0%, #000 80%);
         }
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(4rem, 18vw, 12rem);
-            font-weight: 700; letter-spacing: -8px; line-height: 0.8;
-            margin-bottom: 30px;
+            font-size: clamp(3rem, 12vw, 8rem);
+            font-weight: 700; letter-spacing: -4px; line-height: 0.9;
+            margin-bottom: 15px;
         }
 
-        .hero-btns { display: flex; gap: 20px; }
+        .hero p { font-size: 0.8rem; letter-spacing: 4px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 30px; }
+
         .btn {
-            padding: 18px 45px; border-radius: 0px; text-decoration: none;
-            font-weight: 600; font-size: 0.8rem; text-transform: uppercase;
-            letter-spacing: 2px; transition: 0.5s;
+            padding: 12px 30px; border: 1px solid var(--accent); text-decoration: none;
+            font-weight: 600; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 2px; transition: 0.4s; color: white;
         }
-        .btn-main { background: white; color: black; }
-        .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: white; }
-        .btn:hover { background: transparent; color: white; border-color: white; transform: translateY(-5px); }
+        .btn:hover { background: white; color: black; }
 
-        /* --- PROJECTS WITH HOVER ZOOM --- */
-        .projects-section { padding: 150px 5%; }
-        .section-tag { font-size: 0.8rem; letter-spacing: 5px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 20px; text-align: center;}
+        .skills-section { padding: 80px 5%; }
+        .section-tag { font-size: 0.65rem; letter-spacing: 4px; color: var(--text-dim); text-transform: uppercase; text-align: center; margin-bottom: 40px; }
         
-        .projects-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px; margin-top: 50px;
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .project-card {
-            position: relative; height: 500px; overflow: hidden;
-            background: #111; border: 1px solid var(--border);
+        .skill-card {
+            position: relative; height: 320px; overflow: hidden;
+            background: #0a0a0a; border: 1px solid var(--border);
         }
 
-        .project-card img {
+        .skill-card img {
             width: 100%; height: 100%; object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-            filter: grayscale(100%) brightness(0.7);
+            transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+            filter: grayscale(100%) brightness(0.4);
         }
 
-        .project-info {
+        .skill-info {
             position: absolute; bottom: 0; left: 0; width: 100%;
-            padding: 40px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            transform: translateY(20px); opacity: 0; transition: 0.5s;
+            padding: 25px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transition: 0.5s;
         }
 
-        .project-card:hover img { transform: scale(1.1); filter: grayscale(0%) brightness(0.9); }
-        .project-card:hover .project-info { transform: translateY(0); opacity: 1; }
+        .skill-card:hover img { transform: scale(1.1); filter: grayscale(0%) brightness(0.7); }
+        .skill-card:hover .skill-info { transform: translateY(-5px); }
 
-        /* --- ABOUT --- */
-        .about-section { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .about-title { font-family: 'Space Grotesk', sans-serif; font-size: 5rem; line-height: 0.9; }
-        .about-content p { font-size: 1.4rem; font-weight: 200; line-height: 1.6; color: var(--text-dim); margin-bottom: 30px; }
+        .about-section { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; }
+        .about-title { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; line-height: 1; }
+        .about-content p { font-size: 1.1rem; font-weight: 300; line-height: 1.6; color: var(--text-dim); margin-bottom: 20px; }
 
-        /* --- FOOTER --- */
-        footer { padding: 150px 5% 50px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
-        .footer-left h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(3rem, 10vw, 6rem); line-height: 0.8; margin-top: 20px;}
-        .social-links { display: flex; flex-direction: column; gap: 15px; text-align: right; }
-        .social-links a { color: white; text-decoration: none; font-size: 1.1rem; opacity: 0.4; transition: 0.3s; letter-spacing: 2px; }
-        .social-links a:hover { opacity: 1; transform: translateX(-10px); }
+        footer { padding: 80px 5% 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
+        
+        /* Adjusted Email Size */
+        .footer-left h2 { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 1.8rem; /* Normal, professional size */
+            margin-top: 10px;
+            letter-spacing: -0.5px;
+        }
 
-        @media (max-width: 900px) {
+        .social-links { display: flex; flex-direction: column; gap: 8px; text-align: right; }
+        .social-links a { color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.5; transition: 0.3s; }
+        .social-links a:hover { opacity: 1; transform: translateX(-5px); }
+
+        @media (max-width: 800px) {
             .about-section { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; align-items: flex-start; gap: 60px; }
+            footer { flex-direction: column; align-items: flex-start; gap: 30px; }
+            .social-links { text-align: left; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">ARYAN.</div>
+        <div class="logo">ARYAN DIN.</div>
         <div class="nav-links">
-            <a href="#projects">Work</a>
-            <a href="#about">Philosophy</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="reveal">
-            <p style="letter-spacing: 8px; font-size: 0.8rem; color: var(--text-dim);">CREATIVE DEVELOPER // 2026</p>
-            <h1>ARYAN</h1>
-            <div class="hero-btns">
-                <a href="#contact" class="btn btn-main">Initialize Contact</a>
-                <a href="https://github.com/Scxrface999" target="_blank" class="btn btn-outline">Github ↗</a>
-            </div>
+            <p>1st Year BCA Student // Developer</p>
+            <h1>ARYAN DIN</h1>
+            <a href="https://github.com/Scxrface999" target="_blank" class="btn">View Github ↗</a>
         </div>
     </section>
 
-    <section id="projects" class="projects-section">
-        <p class="section-tag reveal">Selected Works</p>
-        <div class="projects-grid">
-            <div class="project-card reveal">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000" alt="AI Project">
-                <div class="project-info">
-                    <p style="font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 10px;">ARTIFICIAL INTELLIGENCE</p>
-                    <h3 style="font-family: 'Space Grotesk'; font-size: 2rem;">Neural Network Architecture</h3>
+    <section id="skills" class="skills-section">
+        <p class="section-tag reveal">Technical Arsenal</p>
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1000" alt="Python">
+                <div class="skill-info">
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem;">PYTHON</h3>
                 </div>
             </div>
-            <div class="project-card reveal">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1000" alt="Web Dev">
-                <div class="project-info">
-                    <p style="font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 10px;">WEB INFRASTRUCTURE</p>
-                    <h3 style="font-family: 'Space Grotesk'; font-size: 2rem;">High-Performance Backend</h3>
+            <div class="skill-card reveal">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000" alt="DS">
+                <div class="skill-info">
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem;">DS & ALGO</h3>
+                </div>
+            </div>
+            <div class="skill-card reveal">
+                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=1000" alt="SQL">
+                <div class="skill-info">
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem;">SQL</h3>
+                </div>
+            </div>
+            <div class="skill-card reveal">
+                <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?q=80&w=1000" alt="Git">
+                <div class="skill-info">
+                    <h3 style="font-family: 'Space Grotesk'; font-size: 1.5rem;">GIT</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="about" class="about-section">
-        <h2 class="about-title reveal">The <br>Studio <br>Vibe</h2>
+        <h2 class="about-title reveal">About Me</h2>
         <div class="about-content reveal">
             <p>
-                My philosophy is simple: <strong>Eliminate the Noise.</strong> 
-                I specialize in Python and high-performance system design, creating 
-                digital architectures that are as robust as they are aesthetic.
+                I am a <strong>1st year BCA student</strong> focused on building a solid foundation in computer science and software development. 
             </p>
             <p>
-                I believe that <strong>code is an art form</strong>. Every project I build 
-                undergoes a rigorous process of optimization and design refinement 
-                to ensure it leaves a lasting impression on the user.
+                Currently mastering <strong>Python</strong> and <strong>Data Structures</strong>, while refining my skills in backend management and version control. 
             </p>
         </div>
     </section>
 
-    <section id="contact" style="padding: 150px 10%; background: #050505;">
+    <section id="contact" style="padding: 100px 10%; background: #050505; border-top: 1px solid var(--border);">
         <div class="reveal">
-            <p class="section-tag" style="text-align: left;">Connect</p>
-            <h2 style="font-family: 'Space Grotesk'; font-size: 4rem; margin-bottom: 50px;">Ready to build?</h2>
-            <form id="contactForm" style="display: grid; gap: 30px;">
-                <input type="text" id="name" placeholder="YOUR NAME" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 20px 0; font-size: 1.2rem; outline: none;">
-                <input type="email" id="email" placeholder="YOUR EMAIL" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 20px 0; font-size: 1.2rem; outline: none;">
-                <textarea id="message" rows="4" placeholder="DESCRIBE YOUR VISION" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 20px 0; font-size: 1.2rem; outline: none;"></textarea>
-                <button type="submit" class="btn btn-main" style="width: fit-content; border:none; cursor:pointer;">Dispatch Message ↗</button>
+            <h2 style="font-family: 'Space Grotesk'; font-size: 2.5rem; margin-bottom: 30px;">Get in Touch</h2>
+            <form id="contactForm" style="display: grid; gap: 20px; max-width: 500px;">
+                <input type="text" id="name" placeholder="NAME" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 12px 0; outline: none;">
+                <input type="email" id="email" placeholder="EMAIL" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 12px 0; outline: none;">
+                <textarea id="message" rows="3" placeholder="MESSAGE" required style="background: transparent; border: none; border-bottom: 1px solid var(--border); color: white; padding: 12px 0; outline: none;"></textarea>
+                <button type="submit" class="btn" style="width: fit-content; background: none; cursor: pointer;">Send Message ↗</button>
             </form>
-            <p id="status" style="margin-top: 20px; font-size: 0.8rem; letter-spacing: 2px;"></p>
+            <p id="status" style="margin-top: 15px; font-size: 0.8rem;"></p>
         </div>
     </section>
 
     <footer>
         <div class="footer-left reveal">
-            <p style="letter-spacing: 5px; color: var(--text-dim);">INQUIRIES</p>
-            <h2>ARYANDIN04<br>@GMAIL.COM</h2>
+            <p style="letter-spacing: 4px; color: var(--text-dim); font-size: 0.65rem;">SAY HELLO</p>
+            <h2>aryandin04@gmail.com</h2>
         </div>
         <div class="social-links reveal">
             <a href="mailto:aryandin04@gmail.com">EMAIL ↗</a>
@@ -216,7 +220,7 @@
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const status = document.getElementById('status');
-            status.innerText = "UPLOADING TO DATABASE...";
+            status.innerText = "SENDING...";
             try {
                 const res = await fetch('https://my-portfolio-bwgk.onrender.com/contact', {
                     method: 'POST',
@@ -228,11 +232,10 @@
                     })
                 });
                 if(res.ok) {
-                    status.innerText = "SUCCESS. DATA STORED.";
-                    status.style.color = "white";
+                    status.innerText = "SUCCESS: MESSAGE SENT.";
                     document.getElementById('contactForm').reset();
                 }
-            } catch (err) { status.innerText = "ERROR. CONNECTION LOST."; }
+            } catch (err) { status.innerText = "ERROR: TRY AGAIN."; }
         });
     </script>
 </body>
